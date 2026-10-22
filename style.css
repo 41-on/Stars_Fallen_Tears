@@ -10,17 +10,35 @@ body {
 }
 
 body {
-    font-family: sans-serif;
-    color: #fff;
-    background-color: #171512;
+    font-family: Georgia, "Batang", "바탕", serif;
+    color: #35271b;
+    background: #211912;
 }
 
+[hidden] {
+    display: none !important;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* 공통 화면 */
+.screen {
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/* 첫 화면 */
 .landing {
     position: relative;
     display: grid;
     width: 100%;
     min-height: 100vh;
+    min-height: 100svh;
     isolation: isolate;
+    overflow: hidden;
     text-align: center;
 }
 
@@ -30,7 +48,7 @@ body {
     width: 100%;
     height: auto;
     align-self: start;
-    z-index: -2;
+    z-index: 0;
 }
 
 .landing::after {
@@ -38,7 +56,7 @@ body {
     grid-area: 1 / 1;
     align-self: stretch;
     background: rgba(0, 0, 0, 0.42);
-    z-index: -1;
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -46,6 +64,7 @@ body {
     grid-area: 1 / 1;
     align-self: center;
     justify-self: center;
+    z-index: 2;
     width: 100%;
     max-width: 800px;
     padding: 48px 24px;
@@ -57,6 +76,8 @@ body {
 
 .game-title {
     margin: 0;
+    color: #fff;
+    font-family: Georgia, "Batang", "바탕", serif;
     font-size: clamp(2.2rem, 7vw, 5rem);
     line-height: 1.25;
     font-weight: 800;
@@ -66,39 +87,196 @@ body {
 
 .landing-notice {
     margin: 0;
+    color: #fff;
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     line-height: 1.8;
     word-break: keep-all;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
-.ending-button {
+.ending-button,
+.back-button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    min-height: 52px;
+    padding: 12px 28px;
+    border: 1px solid #b69a6b;
+    border-radius: 3px;
+    background: #30251b;
+    color: #f6e9ce;
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.ending-button {
     min-width: 180px;
     min-height: 56px;
-    padding: 14px 32px;
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    border-radius: 4px;
-    background: #263e3a;
-    color: #fff;
     font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
-    cursor: pointer;
 }
 
-.ending-button:hover {
-    background: #385b54;
+.ending-button:hover,
+.back-button:hover {
+    background: #51402d;
 }
 
-.ending-button:focus-visible {
-    outline: 3px solid #fff;
+button:focus-visible {
+    outline: 3px solid #a9874f;
     outline-offset: 4px;
 }
 
-@media (max-width: 480px) {
+/* 범인 선택 화면 */
+.selection-screen {
+    padding: 28px;
+    background: #211912;
+}
+
+.book-page {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    min-height: calc(100vh - 56px);
+    min-height: calc(100svh - 56px);
+    margin: 0 auto;
+    padding: clamp(28px, 5vw, 64px);
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(255,255,255,.28), transparent 65%),
+        repeating-linear-gradient(
+            0deg,
+            rgba(99, 66, 32, 0.025) 0,
+            rgba(99, 66, 32, 0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        #e8d5b0;
+    border: 1px solid #a98a5d;
+    outline: 1px solid rgba(169, 138, 93, 0.6);
+    outline-offset: -8px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.selection-header {
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+.section-label {
+    margin: 0 0 10px;
+    color: #806342;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+}
+
+.selection-header h1 {
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.selection-header > p:last-child {
+    margin: 0;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.9;
+    word-break: keep-all;
+}
+
+/* 인물 카드 */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.character-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    padding: 12px 12px 14px;
+    border: 1px solid #a78a60;
+    outline: 1px solid rgba(167, 138, 96, 0.6);
+    outline-offset: -5px;
+    background: rgba(247, 232, 204, 0.45);
+    color: #35271b;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.character-card:hover {
+    background: rgba(255, 246, 225, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(67, 43, 21, 0.12);
+}
+
+.portrait-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 12px;
+    border: 1px solid rgba(124, 94, 59, 0.55);
+    background:
+        linear-gradient(rgba(105, 78, 48, 0.06), rgba(105, 78, 48, 0.16)),
+        #d5bd95;
+    color: #806747;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+}
+
+.character-name {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 700;
+}
+
+.card-decoration {
+    margin-top: 8px;
+    color: #806342;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+}
+
+.selection-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+/* 작은 화면 */
+@media (max-width: 600px) {
+    .selection-screen {
+        padding: 12px;
+    }
+
+    .book-page {
+        min-height: calc(100svh - 24px);
+        padding: 32px 20px;
+    }
+
+    .selection-header {
+        margin-bottom: 26px;
+    }
+
+    .character-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .character-card {
+        padding: 8px 8px 12px;
+    }
+
+    .portrait-placeholder {
+        aspect-ratio: 3 / 4;
+    }
+
     .landing-content {
         padding: 32px 20px;
         gap: 24px;
