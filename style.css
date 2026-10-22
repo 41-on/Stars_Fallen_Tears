@@ -1,4 +1,4 @@
-/* 기본 설정 */
+
 * {
     box-sizing: border-box;
 }
@@ -15,45 +15,40 @@ body {
     background-color: #171512;
 }
 
-/* 첫 화면 */
 .landing {
     position: relative;
+    display: grid;
+    width: 100%;
     min-height: 100vh;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 24px;
-    overflow: hidden;
     isolation: isolate;
     text-align: center;
 }
 
-/* 게임 표지 배경 */
-.landing::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+.landing-background {
+    grid-area: 1 / 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    align-self: start;
     z-index: -2;
-    background-image: url("cover.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
 }
 
-/* 글자가 잘 보이도록 어두운 막을 덧씌움 */
 .landing::after {
     content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
+    grid-area: 1 / 1;
+    align-self: stretch;
     background: rgba(0, 0, 0, 0.42);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .landing-content {
+    grid-area: 1 / 1;
+    align-self: center;
+    justify-self: center;
     width: 100%;
     max-width: 800px;
+    padding: 48px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,7 +87,6 @@ body {
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
 }
 
 .ending-button:hover {
@@ -105,11 +99,8 @@ body {
 }
 
 @media (max-width: 480px) {
-    .landing {
-        padding: 32px 20px;
-    }
-
     .landing-content {
+        padding: 32px 20px;
         gap: 24px;
     }
 }
