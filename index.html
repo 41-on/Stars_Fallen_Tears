@@ -4,21 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>별이 떨어진 자리엔 눈물이 남았다</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="landing">
-
-        <!-- 표지 이미지를 화면에 표시 -->
+    <!-- 첫 화면 -->
+    <main class="landing screen" id="home-screen">
         <img class="landing-background" src="cover.jpg" alt="">
 
-        <!-- 제목과 안내 문구, 버튼 -->
         <div class="landing-content">
-
             <h1 class="game-title">
                 별이 떨어진 자리엔<br>
                 눈물이 남았다
@@ -29,13 +24,84 @@
                 해당 버튼을 클릭하지 마세요!
             </p>
 
-            <a href="#ending" class="ending-button">
+            <button class="ending-button" id="start-ending">
                 엔딩 보기
-            </a>
-
+            </button>
         </div>
-
     </main>
 
+    <!-- 범인 선택 화면 -->
+    <main class="selection-screen screen" id="culprit-screen" hidden>
+        <section class="book-page">
+            <header class="selection-header">
+                <p class="section-label">THE FINAL VOTE</p>
+                <h1>범인 선택</h1>
+                <p>
+                    투표 결과, 다음 인물 중 한 명이 범인으로 지목되었습니다.<br>
+                    가장 의심되는 인물을 선택해 주세요.
+                </p>
+            </header>
+
+            <div class="character-grid">
+
+                <button class="character-card" type="button" data-character="A">
+                    <span class="portrait-placeholder" aria-hidden="true">
+                        초상화
+                    </span>
+                    <span class="character-name">인물 A</span>
+                    <span class="card-decoration">— ❖ —</span>
+                </button>
+
+                <button class="character-card" type="button" data-character="B">
+                    <span class="portrait-placeholder" aria-hidden="true">
+                        초상화
+                    </span>
+                    <span class="character-name">인물 B</span>
+                    <span class="card-decoration">— ❖ —</span>
+                </button>
+
+                <button class="character-card" type="button" data-character="C">
+                    <span class="portrait-placeholder" aria-hidden="true">
+                        초상화
+                    </span>
+                    <span class="character-name">인물 C</span>
+                    <span class="card-decoration">— ❖ —</span>
+                </button>
+
+                <button class="character-card" type="button" data-character="D">
+                    <span class="portrait-placeholder" aria-hidden="true">
+                        초상화
+                    </span>
+                    <span class="character-name">인물 D</span>
+                    <span class="card-decoration">— ❖ —</span>
+                </button>
+
+                <button class="character-card" type="button" data-character="E">
+                    <span class="portrait-placeholder" aria-hidden="true">
+                        초상화
+                    </span>
+                    <span class="character-name">인물 E</span>
+                    <span class="card-decoration">— ❖ —</span>
+                </button>
+
+                <button class="character-card" type="button" data-character="F">
+                    <span class="portrait-placeholder" aria-hidden="true">
+                        초상화
+                    </span>
+                    <span class="character-name">인물 F</span>
+                    <span class="card-decoration">— ❖ —</span>
+                </button>
+
+            </div>
+
+            <footer class="selection-footer">
+                <button class="back-button" id="back-home" type="button">
+                    ← 처음으로
+                </button>
+            </footer>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
