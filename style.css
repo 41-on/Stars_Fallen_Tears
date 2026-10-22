@@ -39,7 +39,7 @@ body {
     background-image: url("cover.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
 }
 
 /* 글자가 잘 보이도록 어두운 막을 덧씌움 */
