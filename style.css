@@ -46,8 +46,12 @@ button {
     grid-area: 1 / 1;
     display: block;
     width: 100%;
-    height: auto;
-    align-self: start;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    object-fit: contain;
+    object-position: center;
+    align-self: stretch;
     z-index: 0;
 }
 
