@@ -1,0 +1,115 @@
+/* 기본 설정 */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    color: #fff;
+    background-color: #171512;
+}
+
+/* 첫 화면 */
+.landing {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    overflow: hidden;
+    isolation: isolate;
+    text-align: center;
+}
+
+/* 게임 표지 배경 */
+.landing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: url("cover.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 글자가 잘 보이도록 어두운 막을 덧씌움 */
+.landing::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.42);
+}
+
+.landing-content {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.game-title {
+    margin: 0;
+    font-size: clamp(2.2rem, 7vw, 5rem);
+    line-height: 1.25;
+    font-weight: 800;
+    word-break: keep-all;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.8);
+}
+
+.landing-notice {
+    margin: 0;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.8;
+    word-break: keep-all;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.ending-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 180px;
+    min-height: 56px;
+    padding: 14px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 4px;
+    background: #263e3a;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ending-button:hover {
+    background: #385b54;
+}
+
+.ending-button:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+    .landing {
+        padding: 32px 20px;
+    }
+
+    .landing-content {
+        gap: 24px;
+    }
+}
