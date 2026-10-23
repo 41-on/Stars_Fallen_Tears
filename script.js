@@ -59,7 +59,10 @@ const endingState = {
     emilHasItem: null,
     clueOneRevealed: false,
     clueTwoRevealed: false,
-    albertRestraintTarget: null
+    albertRestraintTarget: null,
+    endingTitle: "",
+    endingText: "",
+    epilogueText: ""
 };
 
 
