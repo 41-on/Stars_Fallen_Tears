@@ -67,9 +67,7 @@ const endingState = {
     clueOneRevealed: false,
     clueTwoRevealed: false,
     albertRestraintTarget: null,
-    endingTitle: "",
-    endingText: "",
-    epilogueText: ""
+    currentEnding: null
 };
 
 
@@ -201,7 +199,236 @@ restraintButtons.forEach((button) => {
    8. 엔딩 판정
 ================================================== */
 
+// ==================================================
+// 엔딩 데이터
+// ==================================================
+
+const endings = {
+
+    // ==================================================
+    // 알베르트
+    // ==================================================
+
+    albertTrue: {
+        title: "진엔딩",
+        text: `여기에 알베르트 진엔딩 원고 입력`,
+        epilogue: `여기에 알베르트 진엔딩 에필로그 원고 입력`
+    },
+
+    albertNormal: {
+        title: "엔딩",
+        text: `여기에 알베르트 일반 엔딩 원고 입력`,
+        epilogue: `여기에 알베르트 일반 엔딩 에필로그 원고 입력`
+    },
+
+
+    // ==================================================
+    // 빌헬름
+    // ==================================================
+
+    wilhelmItemJulian: {
+        title: "엔딩",
+        text: `여기에 빌헬름 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 빌헬름 / 아이템 획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    wilhelmItemHilde: {
+        title: "엔딩",
+        text: `여기에 빌헬름 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 빌헬름 / 아이템 획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    wilhelmItemNone: {
+        title: "엔딩",
+        text: `여기에 빌헬름 / 아이템 획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 빌헬름 / 아이템 획득 / 미포박 에필로그 원고 입력`
+    },
+
+    wilhelmNoItemJulian: {
+        title: "엔딩",
+        text: `여기에 빌헬름 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 빌헬름 / 아이템 미획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    wilhelmNoItemHilde: {
+        title: "엔딩",
+        text: `여기에 빌헬름 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 빌헬름 / 아이템 미획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    wilhelmNoItemNone: {
+        title: "엔딩",
+        text: `여기에 빌헬름 / 아이템 미획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 빌헬름 / 아이템 미획득 / 미포박 에필로그 원고 입력`
+    },
+
+
+    // ==================================================
+    // 율리안
+    // ==================================================
+
+    julianItemJulian: {
+        title: "엔딩",
+        text: `여기에 율리안 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 율리안 / 아이템 획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    julianItemHilde: {
+        title: "엔딩",
+        text: `여기에 율리안 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 율리안 / 아이템 획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    julianItemNone: {
+        title: "엔딩",
+        text: `여기에 율리안 / 아이템 획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 율리안 / 아이템 획득 / 미포박 에필로그 원고 입력`
+    },
+
+    julianNoItemJulian: {
+        title: "엔딩",
+        text: `여기에 율리안 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 율리안 / 아이템 미획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    julianNoItemHilde: {
+        title: "엔딩",
+        text: `여기에 율리안 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 율리안 / 아이템 미획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    julianNoItemNone: {
+        title: "엔딩",
+        text: `여기에 율리안 / 아이템 미획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 율리안 / 아이템 미획득 / 미포박 에필로그 원고 입력`
+    },
+
+
+    // ==================================================
+    // 힐데
+    // ==================================================
+
+    hildeItemJulian: {
+        title: "엔딩",
+        text: `여기에 힐데 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 힐데 / 아이템 획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    hildeItemHilde: {
+        title: "엔딩",
+        text: `여기에 힐데 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 힐데 / 아이템 획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    hildeItemNone: {
+        title: "엔딩",
+        text: `여기에 힐데 / 아이템 획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 힐데 / 아이템 획득 / 미포박 에필로그 원고 입력`
+    },
+
+    hildeNoItemJulian: {
+        title: "엔딩",
+        text: `여기에 힐데 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 힐데 / 아이템 미획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    hildeNoItemHilde: {
+        title: "엔딩",
+        text: `여기에 힐데 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 힐데 / 아이템 미획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    hildeNoItemNone: {
+        title: "엔딩",
+        text: `여기에 힐데 / 아이템 미획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 힐데 / 아이템 미획득 / 미포박 에필로그 원고 입력`
+    },
+
+
+    // ==================================================
+    // 하인리히
+    // ==================================================
+
+    heinrichItemJulian: {
+        title: "엔딩",
+        text: `여기에 하인리히 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 하인리히 / 아이템 획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    heinrichItemHilde: {
+        title: "엔딩",
+        text: `여기에 하인리히 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 하인리히 / 아이템 획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    heinrichItemNone: {
+        title: "엔딩",
+        text: `여기에 하인리히 / 아이템 획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 하인리히 / 아이템 획득 / 미포박 에필로그 원고 입력`
+    },
+
+    heinrichNoItemJulian: {
+        title: "엔딩",
+        text: `여기에 하인리히 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 하인리히 / 아이템 미획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    heinrichNoItemHilde: {
+        title: "엔딩",
+        text: `여기에 하인리히 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 하인리히 / 아이템 미획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    heinrichNoItemNone: {
+        title: "엔딩",
+        text: `여기에 하인리히 / 아이템 미획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 하인리히 / 아이템 미획득 / 미포박 에필로그 원고 입력`
+    },
+
+
+    // ==================================================
+    // 에밀
+    // ==================================================
+
+    emilItemJulian: {
+        title: "엔딩",
+        text: `여기에 에밀 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 에밀 / 아이템 획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    emilItemHilde: {
+        title: "엔딩",
+        text: `여기에 에밀 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 에밀 / 아이템 획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    emilItemNone: {
+        title: "엔딩",
+        text: `여기에 에밀 / 아이템 획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 에밀 / 아이템 획득 / 미포박 에필로그 원고 입력`
+    },
+
+    emilNoItemJulian: {
+        title: "엔딩",
+        text: `여기에 에밀 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`,
+        epilogue: `여기에 에밀 / 아이템 미획득 / 율리안 포박 에필로그 원고 입력`
+    },
+
+    emilNoItemHilde: {
+        title: "엔딩",
+        text: `여기에 에밀 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`,
+        epilogue: `여기에 에밀 / 아이템 미획득 / 힐데 포박 에필로그 원고 입력`
+    },
+
+    emilNoItemNone: {
+        title: "엔딩",
+        text: `여기에 에밀 / 아이템 미획득 / 미포박 엔딩 원고 입력`,
+        epilogue: `여기에 에밀 / 아이템 미획득 / 미포박 에필로그 원고 입력`
+    }
+};
+
 function resolveEnding() {
+
     const culprit = endingState.selectedCulprit;
     const hasItem = endingState.emilHasItem;
     const restraint = endingState.albertRestraintTarget;
@@ -219,18 +446,12 @@ function resolveEnding() {
 
         // 알베르트 진엔딩
         if (hasItem === true && hasBothClues) {
-            showEnding(
-                "진엔딩",
-                `여기에 알베르트 진엔딩 원고 입력`
-            );
+            showEnding(endings.albertTrue);
             return;
         }
 
         // 알베르트 일반 엔딩
-        showEnding(
-            "엔딩",
-            `여기에 알베르트 일반 엔딩 원고 입력`
-        );
+        showEnding(endings.albertNormal);
         return;
     }
 
@@ -242,50 +463,32 @@ function resolveEnding() {
     if (culprit === "A") {
 
         if (hasItem === true && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 빌헬름 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.wilhelmItemJulian);
             return;
         }
 
         if (hasItem === true && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 빌헬름 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.wilhelmItemHilde);
             return;
         }
 
         if (hasItem === true && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 빌헬름 / 아이템 획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.wilhelmItemNone);
             return;
         }
 
         if (hasItem === false && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 빌헬름 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.wilhelmNoItemJulian);
             return;
         }
 
         if (hasItem === false && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 빌헬름 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.wilhelmNoItemHilde);
             return;
         }
 
         if (hasItem === false && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 빌헬름 / 아이템 미획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.wilhelmNoItemNone);
             return;
         }
     }
@@ -298,50 +501,32 @@ function resolveEnding() {
     if (culprit === "B") {
 
         if (hasItem === true && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 율리안 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.julianItemJulian);
             return;
         }
 
         if (hasItem === true && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 율리안 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.julianItemHilde);
             return;
         }
 
         if (hasItem === true && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 율리안 / 아이템 획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.julianItemNone);
             return;
         }
 
         if (hasItem === false && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 율리안 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.julianNoItemJulian);
             return;
         }
 
         if (hasItem === false && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 율리안 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.julianNoItemHilde);
             return;
         }
 
         if (hasItem === false && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 율리안 / 아이템 미획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.julianNoItemNone);
             return;
         }
     }
@@ -354,50 +539,32 @@ function resolveEnding() {
     if (culprit === "C") {
 
         if (hasItem === true && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 힐데 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.hildeItemJulian);
             return;
         }
 
         if (hasItem === true && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 힐데 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.hildeItemHilde);
             return;
         }
 
         if (hasItem === true && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 힐데 / 아이템 획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.hildeItemNone);
             return;
         }
 
         if (hasItem === false && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 힐데 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.hildeNoItemJulian);
             return;
         }
 
         if (hasItem === false && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 힐데 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.hildeNoItemHilde);
             return;
         }
 
         if (hasItem === false && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 힐데 / 아이템 미획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.hildeNoItemNone);
             return;
         }
     }
@@ -410,50 +577,32 @@ function resolveEnding() {
     if (culprit === "D") {
 
         if (hasItem === true && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 하인리히 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.heinrichItemJulian);
             return;
         }
 
         if (hasItem === true && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 하인리히 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.heinrichItemHilde);
             return;
         }
 
         if (hasItem === true && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 하인리히 / 아이템 획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.heinrichItemNone);
             return;
         }
 
         if (hasItem === false && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 하인리히 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.heinrichNoItemJulian);
             return;
         }
 
         if (hasItem === false && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 하인리히 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.heinrichNoItemHilde);
             return;
         }
 
         if (hasItem === false && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 하인리히 / 아이템 미획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.heinrichNoItemNone);
             return;
         }
     }
@@ -466,62 +615,42 @@ function resolveEnding() {
     if (culprit === "F") {
 
         if (hasItem === true && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 에밀 / 아이템 획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.emilItemJulian);
             return;
         }
 
         if (hasItem === true && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 에밀 / 아이템 획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.emilItemHilde);
             return;
         }
 
         if (hasItem === true && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 에밀 / 아이템 획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.emilItemNone);
             return;
         }
 
         if (hasItem === false && restraint === "julian") {
-            showEnding(
-                "엔딩",
-                `여기에 에밀 / 아이템 미획득 / 율리안 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.emilNoItemJulian);
             return;
         }
 
         if (hasItem === false && restraint === "hilde") {
-            showEnding(
-                "엔딩",
-                `여기에 에밀 / 아이템 미획득 / 힐데 포박 엔딩 원고 입력`
-            );
+            showEnding(endings.emilNoItemHilde);
             return;
         }
 
         if (hasItem === false && restraint === "none") {
-            showEnding(
-                "엔딩",
-                `여기에 에밀 / 아이템 미획득 / 미포박 엔딩 원고 입력`
-            );
+            showEnding(endings.emilNoItemNone);
             return;
         }
     }
 }
 
-function showEnding(title, description, epilogue) {
-    endingState.endingTitle = title;
-    endingState.endingText = description;
-    endingState.epilogueText = epilogue;
+function showEnding(ending) {
+    endingState.currentEnding = ending;
 
-    endingTitle.textContent = title;
-    endingDescription.textContent = description;
+    endingTitle.textContent = ending.title;
+    endingDescription.textContent = ending.text;
 
     showScreen(screens.ending);
 }
