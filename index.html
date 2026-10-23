@@ -257,21 +257,86 @@
         </header>
         <div class="choice-content">
             <p id="ending-description"></p>
-            <button id="go-to-epilogue">에필로그</button>
-            <button class="back-button" id="restart-ending" type="button">
+            <button
+                class="ending-button"
+                id="go-to-epilogue"
+                type="button"
+            >
+                에필로그
+            </button>
+            <button
+                class="back-button"
+                id="restart-ending"
+                type="button"
+            >
                 처음으로
             </button>
         </div>
     </section>
-    
-    <section id="epilogue-screen" class="screen">
-    <div class="ending-content">
-        <h1 id="epilogue-title">에필로그</h1>
-        <div id="epilogue-text"></div>
+</main>
 
-        <button id="finish-game">게임 종료</button>
-    </div>
-</section>
+<!-- 8. 에필로그 -->
+<main class="choice-screen screen" id="epilogue-screen" hidden>
+    <section class="book-page choice-page">
+        <header class="selection-header">
+            <p class="section-label">EPILOGUE</p>
+            <h1 id="epilogue-title">에필로그</h1>
+        </header>
+        <div class="choice-content">
+            <div id="epilogue-character-buttons">
+                <button
+                    class="ending-button epilogue-character"
+                    data-character="wilhelm"
+                    type="button"
+                >
+                    빌헬름
+                </button>
+                <button
+                    class="ending-button epilogue-character"
+                    data-character="julian"
+                    type="button"
+                >
+                    율리안
+                </button>
+                <button
+                    class="ending-button epilogue-character"
+                    data-character="hilde"
+                    type="button"
+                >
+                    힐데
+                </button>
+                <button
+                    class="ending-button epilogue-character"
+                    data-character="heinrich"
+                    type="button"
+                >
+                    하인리히
+                </button>
+                <button
+                    class="ending-button epilogue-character"
+                    data-character="albert"
+                    type="button"
+                >
+                    알베르트
+                </button>
+                <button
+                    class="ending-button epilogue-character"
+                    data-character="emil"
+                    type="button"
+                >
+                    에밀
+                </button>
+            </div>
+            <div id="epilogue-text"></div>
+            <button
+                class="back-button"
+                id="finish-game"
+                type="button"
+            >
+                게임 종료
+            </button>
+        </div>
+    </section>
 </main>
 
     <!-- JavaScript -->
