@@ -302,7 +302,7 @@ button:focus-visible {
 .selected-character-name {
     margin: 0;
     color: #35271b;
-    font-size: clamp(3rem, 9vw, 6rem);
+    font-size: clamp(5rem, 9vw, 6rem);
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: 0.08em;
