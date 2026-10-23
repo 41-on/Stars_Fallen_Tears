@@ -17,11 +17,7 @@ const screens = {
 const startButton = document.getElementById("start-ending");
 const backButton = document.getElementById("back-home");
 const backToCulpritsButton = document.getElementById("back-to-culprits");
-
 const characterCards = document.querySelectorAll(".character-card");
-const selectedCharacterText = document.getElementById(
-    "selected-character-text"
-);
 
 const itemYesButton = document.getElementById("item-yes");
 const itemNoButton = document.getElementById("item-no");
