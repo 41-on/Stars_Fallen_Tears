@@ -1,5 +1,4 @@
 console.log("script.js 실행됨");
-```javascript
 /* ================================================== */
 /* 화면 요소 */
 /* ================================================== */
@@ -91,4 +90,3 @@ characterCards.forEach((card) => {
 backToCulpritsButton.addEventListener("click", () => {
     showScreen(culpritScreen);
 });
-```
