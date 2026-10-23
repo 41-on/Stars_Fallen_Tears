@@ -33,7 +33,6 @@ const restraintButtons = document.querySelectorAll(".restraint-option");
 
 const endingTitle = document.getElementById("ending-title");
 const endingDescription = document.getElementById("ending-description");
-const restartButton = document.getElementById("restart-ending");
 const goToEpilogueButton = document.getElementById("go-to-epilogue");
 
 const epilogueTitle = document.getElementById("epilogue-title");
@@ -41,7 +40,7 @@ const epilogueText = document.getElementById("epilogue-text");
 const epilogueCharacterButtons =
     document.querySelectorAll(".epilogue-character");
 const finishGameButton = document.getElementById("finish-game");
-
+const finishEpilogueButton = document.getElementById("finish-epilogue");
 
 /* ==================================================
    2. 인물 이름
@@ -916,31 +915,7 @@ epilogueCharacterButtons.forEach((button) => {
    14. 게임 종료
 ================================================== */
 
-if (finishGameButton) {
-    finishGameButton.addEventListener("click", () => {
-        endingState.selectedCulprit = null;
-        endingState.emilHasItem = null;
-        endingState.clueOneRevealed = false;
-        endingState.clueTwoRevealed = false;
-        endingState.albertRestraintTarget = null;
-        endingState.currentEnding = null;
-
-        if (clueOneInput) clueOneInput.checked = false;
-        if (clueTwoInput) clueTwoInput.checked = false;
-
-        epilogueTitle.textContent = "에필로그";
-        epilogueText.textContent = "";
-
-        showScreen(screens.home);
-    });
-}
-
-/* ==================================================
-   15. 처음으로 다시 시작
-================================================== */
-
-restartButton.addEventListener("click", () => {
-
+function returnToHome() {
     endingState.selectedCulprit = null;
     endingState.emilHasItem = null;
     endingState.clueOneRevealed = false;
@@ -948,13 +923,14 @@ restartButton.addEventListener("click", () => {
     endingState.albertRestraintTarget = null;
     endingState.currentEnding = null;
 
-    clueOneInput.checked = false;
-    clueTwoInput.checked = false;
-
-    selectedCharacterText.textContent = "";
+    if (clueOneInput) clueOneInput.checked = false;
+    if (clueTwoInput) clueTwoInput.checked = false;
 
     epilogueTitle.textContent = "에필로그";
     epilogueText.textContent = "";
 
     showScreen(screens.home);
-});
+}
+
+finishGameButton.addEventListener("click", returnToHome);
+finishEpilogueButton.addEventListener("click", returnToHome);
