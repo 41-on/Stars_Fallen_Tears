@@ -39,7 +39,14 @@ const restraintButtons = document.querySelectorAll(".restraint-option");
 const endingTitle = document.getElementById("ending-title");
 const endingDescription = document.getElementById("ending-description");
 const restartButton = document.getElementById("restart-ending");
+const epilogueTitle =
+    document.getElementById("epilogue-title");
 
+const epilogueText =
+    document.getElementById("epilogue-text");
+
+const finishGameButton =
+    document.getElementById("finish-game");
 
 /* ==================================================
    2. 선택 결과 저장
@@ -508,12 +515,26 @@ function resolveEnding() {
     }
 }
 
-function showEnding(title, description) {
+function showEnding(title, description, epilogue) {
+    endingState.endingTitle = title;
+    endingState.endingText = description;
+    endingState.epilogueText = epilogue;
+
     endingTitle.textContent = title;
     endingDescription.textContent = description;
+
     showScreen(screens.ending);
 }
 
+const goToEpilogueButton =
+    document.getElementById("go-to-epilogue");
+
+goToEpilogueButton.addEventListener("click", () => {
+    epilogueTitle.textContent = "에필로그";
+    epilogueText.textContent = endingState.epilogueText;
+
+    showScreen(screens.epilogue);
+});
 
 /* ==================================================
    9. 처음부터 다시 시작
