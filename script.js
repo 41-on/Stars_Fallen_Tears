@@ -7,11 +7,11 @@ console.log("script.js 실행됨");
 const screens = {
     home: document.getElementById("home-screen"),
     culprit: document.getElementById("culprit-screen"),
-    choice: document.getElementById("choice-screen"),
     item: document.getElementById("item-screen"),
     clue: document.getElementById("clue-screen"),
     restraint: document.getElementById("restraint-screen"),
-    ending: document.getElementById("ending-screen")
+    ending: document.getElementById("ending-screen"),
+    epilogue: document.getElementById("epilogue-screen")
 };
 
 const startButton = document.getElementById("start-ending");
