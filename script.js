@@ -39,14 +39,11 @@ const restraintButtons = document.querySelectorAll(".restraint-option");
 const endingTitle = document.getElementById("ending-title");
 const endingDescription = document.getElementById("ending-description");
 const restartButton = document.getElementById("restart-ending");
-const epilogueTitle =
-    document.getElementById("epilogue-title");
+const goToEpilogueButton = document.getElementById("go-to-epilogue");
 
-const epilogueText =
-    document.getElementById("epilogue-text");
-
-const finishGameButton =
-    document.getElementById("finish-game");
+const epilogueTitle = document.getElementById("epilogue-title");
+const epilogueText = document.getElementById("epilogue-text");
+const finishGameButton = document.getElementById("finish-game");
 
 /* ==================================================
    2. 선택 결과 저장
@@ -655,12 +652,16 @@ function showEnding(ending) {
     showScreen(screens.ending);
 }
 
-const goToEpilogueButton =
-    document.getElementById("go-to-epilogue");
-
 goToEpilogueButton.addEventListener("click", () => {
+
+    const currentEnding = endingState.currentEnding;
+
+    if (!currentEnding) {
+        return;
+    }
+
     epilogueTitle.textContent = "에필로그";
-    epilogueText.textContent = endingState.epilogueText;
+    epilogueText.textContent = currentEnding.epilogue;
 
     showScreen(screens.epilogue);
 });
