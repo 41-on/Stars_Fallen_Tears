@@ -286,3 +286,19 @@ button:focus-visible {
         gap: 24px;
     }
 }
+
+.choice-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.choice-content {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.choice-content p {
+    margin: 0 0 30px;
+}
