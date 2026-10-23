@@ -121,7 +121,23 @@ document.getElementById("back-to-culprits").addEventListener(
 
 function chooseItem(hasItem) {
     endingState.emilHasItem = hasItem;
-    showScreen(screens.clue);
+
+    if (endingState.selectedCulprit === "E") {
+        if (hasItem) {
+            // 알베르트가 진범이고 아이템도 획득한 경우에만
+            // 단서 공개 여부를 확인한다.
+            showScreen(screens.clue);
+        } else {
+            // 아이템 미획득이면 진엔딩 불가
+            // 단서 공개 페이지를 건너뛴다.
+            endingState.clueOneRevealed = false;
+            endingState.clueTwoRevealed = false;
+            resolveEnding();
+        }
+    } else {
+        // 다른 인물이 진범이면 포박 상황 확인
+        showScreen(screens.restraint);
+    }
 }
 
 itemYesButton.addEventListener("click", () => {
@@ -145,11 +161,9 @@ confirmCluesButton.addEventListener("click", () => {
     endingState.clueOneRevealed = clueOneInput.checked;
     endingState.clueTwoRevealed = clueTwoInput.checked;
 
-    // 알베르트가 진범이면 구속되므로 포박 분기를 건너뛴다.
-    if (endingState.selectedCulprit === "E") {
-        resolveEnding();
-        return;
-    }
+    // 알베르트 경로에서는 포박 선택 없이 엔딩 판정
+    resolveEnding();
+});
 
     // 다른 인물이 진범이면 포박 상황을 확인한다.
     showScreen(screens.restraint);
