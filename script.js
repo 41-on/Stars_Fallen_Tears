@@ -912,52 +912,10 @@ epilogueCharacterButtons.forEach((button) => {
 
 });
 
-
 /* ==================================================
    14. 게임 종료
 ================================================== */
 
 finishGameButton.addEventListener("click", () => {
-
-    endingState.selectedCulprit = null;
-    endingState.emilHasItem = null;
-    endingState.clueOneRevealed = false;
-    endingState.clueTwoRevealed = false;
-    endingState.albertRestraintTarget = null;
-    endingState.currentEnding = null;
-
-    clueOneInput.checked = false;
-    clueTwoInput.checked = false;
-
-    selectedCharacterText.textContent = "";
-
-    epilogueTitle.textContent = "에필로그";
-    epilogueText.textContent = "";
-
-    showScreen(screens.home);
-});
-
-
-/* ==================================================
-   15. 처음으로 다시 시작
-================================================== */
-
-restartButton.addEventListener("click", () => {
-
-    endingState.selectedCulprit = null;
-    endingState.emilHasItem = null;
-    endingState.clueOneRevealed = false;
-    endingState.clueTwoRevealed = false;
-    endingState.albertRestraintTarget = null;
-    endingState.currentEnding = null;
-
-    clueOneInput.checked = false;
-    clueTwoInput.checked = false;
-
-    selectedCharacterText.textContent = "";
-
-    epilogueTitle.textContent = "에필로그";
-    epilogueText.textContent = "";
-
     showScreen(screens.home);
 });
