@@ -1,3 +1,7 @@
+```css
+/* ================================================== */
+/* 공통 */
+/* ================================================== */
 
 * {
     box-sizing: border-box;
@@ -24,13 +28,47 @@ button {
     cursor: pointer;
 }
 
-/* 공통 화면 */
 .screen {
     min-height: 100vh;
     min-height: 100svh;
 }
 
-/* 첫 화면 */
+button:focus-visible {
+    outline: 3px solid #a9874f;
+    outline-offset: 4px;
+}
+
+
+/* ================================================== */
+/* 공통 버튼 */
+/* ================================================== */
+
+.ending-button,
+.back-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 52px;
+    padding: 12px 28px;
+    border: 1px solid #b69a6b;
+    border-radius: 3px;
+    background: #30251b;
+    color: #f6e9ce;
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.ending-button:hover,
+.back-button:hover {
+    background: #51402d;
+}
+
+
+/* ================================================== */
+/* 1. 첫 화면 */
+/* ================================================== */
+
 .landing {
     position: relative;
     display: grid;
@@ -98,39 +136,17 @@ button {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
-.ending-button,
-.back-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 52px;
-    padding: 12px 28px;
-    border: 1px solid #b69a6b;
-    border-radius: 3px;
-    background: #30251b;
-    color: #f6e9ce;
-    font-size: 1.05rem;
-    font-weight: 700;
-    transition: background-color 0.2s ease;
-}
-
 .ending-button {
     min-width: 180px;
     min-height: 56px;
     font-size: 1.1rem;
 }
 
-.ending-button:hover,
-.back-button:hover {
-    background: #51402d;
-}
 
-button:focus-visible {
-    outline: 3px solid #a9874f;
-    outline-offset: 4px;
-}
+/* ================================================== */
+/* 2. 범인 선택 화면 */
+/* ================================================== */
 
-/* 범인 선택 화면 */
 .selection-screen {
     padding: 28px;
     background: #211912;
@@ -145,7 +161,11 @@ button:focus-visible {
     margin: 0 auto;
     padding: clamp(28px, 5vw, 64px);
     background:
-        radial-gradient(ellipse at 50% 35%, rgba(255,255,255,.28), transparent 65%),
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(255, 255, 255, 0.28),
+            transparent 65%
+        ),
         repeating-linear-gradient(
             0deg,
             rgba(99, 66, 32, 0.025) 0,
@@ -186,7 +206,9 @@ button:focus-visible {
     word-break: keep-all;
 }
 
+
 /* 인물 카드 */
+
 .character-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -228,7 +250,10 @@ button:focus-visible {
     margin-bottom: 12px;
     border: 1px solid rgba(124, 94, 59, 0.55);
     background:
-        linear-gradient(rgba(105, 78, 48, 0.06), rgba(105, 78, 48, 0.16)),
+        linear-gradient(
+            rgba(105, 78, 48, 0.06),
+            rgba(105, 78, 48, 0.16)
+        ),
         #d5bd95;
     color: #806747;
     font-size: 0.9rem;
@@ -253,8 +278,45 @@ button:focus-visible {
     margin-top: 36px;
 }
 
+
+/* ================================================== */
+/* 3. 선택한 인물 화면 */
+/* ================================================== */
+
+.choice-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.choice-content {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.choice-content p {
+    margin: 0 0 30px;
+}
+
+.selected-character-name {
+    margin: 0;
+    color: #35271b;
+    font-size: clamp(3rem, 9vw, 6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+}
+
+
+/* ================================================== */
 /* 작은 화면 */
+/* ================================================== */
+
 @media (max-width: 600px) {
+
+    /* 범인 선택 화면 */
+
     .selection-screen {
         padding: 12px;
     }
@@ -281,33 +343,12 @@ button:focus-visible {
         aspect-ratio: 3 / 4;
     }
 
+
+    /* 첫 화면 */
+
     .landing-content {
         padding: 32px 20px;
         gap: 24px;
     }
 }
-
-.choice-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.choice-content {
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.choice-content p {
-    margin: 0 0 30px;
-}
-
-.selected-character-name {
-    margin: 0;
-    color: #35271b;
-    font-size: clamp(3rem, 9vw, 6rem);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: 0.08em;
-}
+```
