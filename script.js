@@ -16,7 +16,6 @@ const screens = {
 
 const startButton = document.getElementById("start-ending");
 const backButton = document.getElementById("back-home");
-const backToCulpritsButton = document.getElementById("back-to-culprits");
 const characterCards = document.querySelectorAll(".character-card");
 
 const itemYesButton = document.getElementById("item-yes");
@@ -112,11 +111,6 @@ characterCards.forEach((card) => {
         showScreen(screens.item);
     });
 });
-
-backToCulpritsButton.addEventListener("click", () => {
-    showScreen(screens.culprit);
-});
-
 
 /* ==================================================
    6. 선택한 인물 → 아이템 획득 여부
