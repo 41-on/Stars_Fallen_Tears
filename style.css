@@ -173,10 +173,10 @@ button:focus-visible {
 }
 
 .selection-header h1 {
-    margin: 0 0 14px;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    margin: 0 0 8px;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 0.18em;
 }
 
 .selection-header > p:last-child {
@@ -305,9 +305,9 @@ button:focus-visible {
 
 .selected-character-name {
     margin: 0;
-    color: #4a321d;
-    font-size: clamp(4rem, 5vw, 3.2rem);
+    color: #35271b;
+    font-size: clamp(3rem, 9vw, 6rem);
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.15;
     letter-spacing: 0.08em;
 }
