@@ -100,10 +100,8 @@ characterCards.forEach((card) => {
     card.addEventListener("click", () => {
         endingState.selectedCulprit = card.dataset.character;
 
-        selectedCharacterText.textContent =
-            characterNames[endingState.selectedCulprit];
-
-        showScreen(screens.choice);
+        // 범인을 선택하면 바로 아이템 분기로 이동
+        showScreen(screens.item);
     });
 });
 
