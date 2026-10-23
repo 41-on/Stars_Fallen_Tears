@@ -169,7 +169,7 @@ backToItemButton.addEventListener("click", () => {
 });
 
 backToCluesButton.addEventListener("click", () => {
-    showScreen(screens.clue);
+    showScreen(screens.item);
 });
 
 
