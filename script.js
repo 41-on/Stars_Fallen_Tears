@@ -161,12 +161,7 @@ confirmCluesButton.addEventListener("click", () => {
     endingState.clueOneRevealed = clueOneInput.checked;
     endingState.clueTwoRevealed = clueTwoInput.checked;
 
-    // 알베르트 경로에서는 포박 선택 없이 엔딩 판정
     resolveEnding();
-);
-
-    // 다른 인물이 진범이면 포박 상황을 확인한다.
-    showScreen(screens.restraint);
 });
 
 backToItemButton.addEventListener("click", () => {
