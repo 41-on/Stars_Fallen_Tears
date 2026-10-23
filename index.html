@@ -132,7 +132,7 @@
     <section class="book-page choice-page">
         <header class="selection-header">
             <p class="section-label">ENDING</p>
-            <h1>엔딩 분기 1</h1>
+            <h1>기밀 문서 소지 여부</h1>
             <p>에밀이 기밀 문서 2개를 소지하고 있습니까?</p>
         </header>
         <div class="choice-content">
@@ -163,10 +163,12 @@
                 <input type="checkbox" id="clue-one">
                 첫 번째 단서 공개
             </label>
+            <footer class="selection-footer">
             <label>
                 <input type="checkbox" id="clue-two">
                 두 번째 단서 공개
             </label>
+            <footer class="selection-footer">
             <button class="ending-button" id="confirm-clues" type="button">
                 다음
             </button>
@@ -177,13 +179,14 @@
     </section>
 </main>
 
-<!-- 6. 알베르트의 포박 대상 -->
+<!-- 5. 알베르트의 포박 대상 -->
 <main class="choice-screen screen" id="restraint-screen" hidden>
     <section class="book-page choice-page">
         <header class="selection-header">
             <p class="section-label">ENDING CONDITIONS</p>
-            <h1>포박 상황</h1>
-            <p>알베르트가 누구를 포박했습니까?</p>
+            <h1>포박 여부</h1>
+            <p>알베르트가 유대인 중<br>
+               누구를 포박했습니까?</p>
         </header>
         <div class="choice-content">
             <button class="ending-button restraint-option"
@@ -196,8 +199,9 @@
             </button>
             <button class="ending-button restraint-option"
                 data-restraint="none" type="button">
-                아무도 포박하지 않았다
+                포박하지 않았다
             </button>
+            <footer class="selection-footer">
             <button class="back-button" id="back-to-clues" type="button">
                 ← 이전
             </button>
@@ -205,12 +209,12 @@
     </section>
 </main>
 
-<!-- 7. 엔딩 결과 -->
+<!-- 6. 엔딩 결과 -->
 <main class="choice-screen screen" id="ending-screen" hidden>
     <section class="book-page choice-page">
         <header class="selection-header">
             <p class="section-label">THE END</p>
-            <h1 id="ending-title">엔딩</h1>
+            <h1 id="ending-title">당신들의 끝</h1>
         </header>
         <div class="choice-content">
             <p id="ending-description"></p>
@@ -267,6 +271,7 @@
                     data-character="heinrich"
                     type="button"
                 >
+                    <footer class="selection-footer">
                     하인리히
                 </button>
                 <button
@@ -290,6 +295,7 @@
                 id="finish-game"
                 type="button"
             >
+                <footer class="selection-footer">
                 게임 종료
             </button>
         </div>
