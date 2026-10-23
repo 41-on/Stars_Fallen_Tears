@@ -32,7 +32,6 @@
     class="ending-button"
     id="start-ending"
     type="button"
-    onclick="document.getElementById('home-screen').hidden = true; document.getElementById('culprit-screen').hidden = false; window.scrollTo(0, 0);"
 >
     엔딩 보기
 </button>
@@ -171,7 +170,99 @@
         </section>
 
     </main>
+    
+<!-- 4. 에밀의 아이템 획득 여부 -->
+<main class="choice-screen screen" id="item-screen" hidden>
+    <section class="book-page choice-page">
+        <header class="selection-header">
+            <p class="section-label">ENDING CONDITIONS</p>
+            <h1>아이템 획득 여부</h1>
+            <p>에밀이 특정 아이템을 획득했습니까?</p>
+        </header>
+        <div class="choice-content">
+            <button class="ending-button" id="item-yes" type="button">
+                획득했다
+            </button>
+            <button class="back-button" id="item-no" type="button">
+                획득하지 못했다
+            </button>
+            <button class="back-button" id="back-to-culprits-from-item" type="button">
+                ← 범인 선택으로 돌아가기
+            </button>
+        </div>
+    </section>
+</main>
 
+<!-- 5. 단서 공개 여부 -->
+<main class="choice-screen screen" id="clue-screen" hidden>
+    <section class="book-page choice-page">
+        <header class="selection-header">
+            <p class="section-label">ENDING CONDITIONS</p>
+            <h1>단서 공개 여부</h1>
+            <p>공개된 단서를 선택해 주세요.</p>
+        </header>
+        <div class="choice-content">
+            <label>
+                <input type="checkbox" id="clue-one">
+                첫 번째 단서 공개
+            </label>
+            <label>
+                <input type="checkbox" id="clue-two">
+                두 번째 단서 공개
+            </label>
+            <button class="ending-button" id="confirm-clues" type="button">
+                다음
+            </button>
+            <button class="back-button" id="back-to-item" type="button">
+                ← 이전
+            </button>
+        </div>
+    </section>
+</main>
+
+<!-- 6. 알베르트의 포박 대상 -->
+<main class="choice-screen screen" id="restraint-screen" hidden>
+    <section class="book-page choice-page">
+        <header class="selection-header">
+            <p class="section-label">ENDING CONDITIONS</p>
+            <h1>포박 상황</h1>
+            <p>알베르트가 누구를 포박했습니까?</p>
+        </header>
+        <div class="choice-content">
+            <button class="ending-button restraint-option"
+                data-restraint="julian" type="button">
+                율리안을 포박했다
+            </button>
+            <button class="ending-button restraint-option"
+                data-restraint="hilde" type="button">
+                힐데를 포박했다
+            </button>
+            <button class="ending-button restraint-option"
+                data-restraint="none" type="button">
+                아무도 포박하지 않았다
+            </button>
+            <button class="back-button" id="back-to-clues" type="button">
+                ← 이전
+            </button>
+        </div>
+    </section>
+</main>
+
+<!-- 7. 엔딩 결과 -->
+<main class="choice-screen screen" id="ending-screen" hidden>
+    <section class="book-page choice-page">
+        <header class="selection-header">
+            <p class="section-label">THE END</p>
+            <h1 id="ending-title">엔딩</h1>
+        </header>
+        <div class="choice-content">
+            <p id="ending-description"></p>
+            <button class="back-button" id="restart-ending" type="button">
+                처음으로
+            </button>
+        </div>
+    </section>
+</main>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
