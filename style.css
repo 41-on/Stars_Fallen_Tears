@@ -192,6 +192,8 @@ button:focus-visible {
     position: relative;
     z-index: 1;
 
+    width: calc(100% + 2 * clamp(28px, 5vw, 64px));
+
     margin-top: calc(-1 * clamp(28px, 5vw, 64px));
     margin-left: calc(-1 * clamp(28px, 5vw, 64px));
     margin-right: calc(-1 * clamp(28px, 5vw, 64px));
@@ -209,10 +211,7 @@ button:focus-visible {
     color: #C6AC7B;
 }
 
-.selection-header h1 {
-    color: #F6E9CE;
-}
-
+.selection-header h1,
 .selection-header > p:last-child {
     color: #F6E9CE;
 }
@@ -322,10 +321,19 @@ button:focus-visible {
 .choice-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .choice-content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.8;
