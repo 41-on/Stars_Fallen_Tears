@@ -194,15 +194,18 @@ button:focus-visible {
 }
 
 .selection-header h1 {
-    margin: 0 0 8px;
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
-    font-weight: 400;
-    letter-spacing: 0.18em;
+    margin: 0 0 18px;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.08em;
+    word-break: keep-all;
 }
 
 .selection-header > p:last-child {
     margin: 0;
-    font-size: clamp(1.2rem, 2.5vw, 1.25rem);
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 400;
     line-height: 1.9;
     word-break: keep-all;
 }
