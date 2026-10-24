@@ -45,7 +45,7 @@ button:focus-visible {
 .ending-button,
 .back-button {
     display: inline-flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     min-height: 52px;
     padding: 12px 28px;
