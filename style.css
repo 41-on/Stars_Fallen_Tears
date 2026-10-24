@@ -369,51 +369,6 @@ button:focus-visible {
 }
 
 /* ================================================== */
-/* 책 페이지 제목 영역 */
-/* ================================================== */
-
-.book-page {
-    --page-pad-x: clamp(28px, 5vw, 64px);
-    --page-pad-y: clamp(28px, 5vw, 64px);
-
-    padding: var(--page-pad-y) var(--page-pad-x);
-}
-
-.book-page > .selection-header {
-    position: relative;
-    z-index: 1;
-
-    width: calc(100% + 2 * var(--page-pad-x));
-
-    margin-top: calc(-1 * var(--page-pad-y));
-    margin-left: calc(-1 * var(--page-pad-x));
-    margin-right: 0;
-    margin-bottom: 36px;
-
-    padding: 48px 24px 32px;
-
-    text-align: center;
-
-    background: #142F28;
-    color: #F6E9CE;
-
-    border: none;
-    box-shadow: none;
-}
-
-.book-page > .selection-header .section-label {
-    color: #C6AC7B;
-}
-
-.book-page > .selection-header h1 {
-    color: #F6E9CE;
-}
-
-.book-page > .selection-header > p:last-child {
-    color: #F6E9CE;
-}
-
-/* ================================================== */
 /* 작은 화면 */
 /* ================================================== */
 
