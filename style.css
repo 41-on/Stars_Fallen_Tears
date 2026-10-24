@@ -168,6 +168,7 @@ button:focus-visible {
     min-height: calc(100svh - 56px);
     margin: 0 auto;
     padding: clamp(28px, 5vw, 64px);
+
     background:
         radial-gradient(
             ellipse at 50% 35%,
@@ -182,10 +183,13 @@ button:focus-visible {
             transparent 4px
         ),
         #e8d5b0;
+
     border: 1px solid #a98a5d;
     outline: 1px solid rgba(169, 138, 93, 0.6);
     outline-offset: -8px;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
 }
 
 .selection-header {
@@ -219,6 +223,26 @@ button:focus-visible {
     word-break: keep-all;
 }
 
+.book-page > .selection-header {
+    margin-top: calc(-1 * clamp(28px, 5vw, 64px));
+    margin-left: calc(-1 * clamp(28px, 5vw, 64px));
+    margin-right: calc(-1 * clamp(28px, 5vw, 64px));
+    margin-bottom: 36px;
+
+    padding: 48px 24px 32px;
+
+    background: #142F28;
+    color: #F6E9CE;
+}
+
+.book-page > .selection-header .section-label {
+    color: #C6AC7B;
+}
+
+.book-page > .selection-header h1,
+.book-page > .selection-header > p:last-child {
+    color: #F6E9CE;
+}
 
 /* 인물 카드 */
 
