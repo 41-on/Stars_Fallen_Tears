@@ -187,7 +187,9 @@ button:focus-visible {
 .section-label {
     margin: 0 0 10px;
     color: #806342;
-    font-size: 0.75rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 0.95rem;
+    font-weight: 600;
     letter-spacing: 0.22em;
 }
 
