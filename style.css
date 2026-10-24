@@ -118,7 +118,7 @@ button:focus-visible {
 .game-title {
     margin: 0;
     color: #fff;
-    font-family: Georgia, "Batang", "바탕", serif;
+    font-family: "Noto Serif KR", "바탕", "Batang", serif;
     font-size: clamp(2.2rem, 7vw, 5rem);
     line-height: 1.25;
     font-weight: 800;
