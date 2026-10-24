@@ -388,23 +388,21 @@ button:focus-visible {
     color: #F6E9CE;
 }
 
-/* 제목 배경을 책 페이지 좌우 끝까지 확장 */
+/* 제목 영역을 책 페이지 좌우 끝까지 확장 */
 .selection-header {
     position: relative;
-    z-index: 1;
-    isolation: isolate;
-}
+    z-index: 2;
 
-.selection-header::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: calc(-1 * clamp(28px, 5vw, 64px));
-    right: calc(-1 * clamp(28px, 5vw, 64px));
+    width: calc(100% + 2 * clamp(28px, 5vw, 64px));
+    margin-top: 0;
+    margin-left: calc(-1 * clamp(28px, 5vw, 64px));
+    margin-right: 0;
+    margin-bottom: 36px;
 
+    padding: 32px 24px;
     background: #142F28;
+    border: none;
+    box-shadow: none;
 }
 
 /* ================================================== */
