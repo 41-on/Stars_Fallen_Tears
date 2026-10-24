@@ -368,53 +368,49 @@ button:focus-visible {
     letter-spacing: 0.06em;
 }
 
-/* 공통 제목 영역 */
-.selection-header {
-    margin: 0 auto 36px;
-    padding: 32px 24px;
-    text-align: center;
+/* ================================================== */
+/* 책 페이지 제목 영역 */
+/* ================================================== */
 
-    background: #142F28;
-    color: #F6E9CE;
-    border: 1px solid #426457;
-    box-shadow: 0 4px 12px rgba(33, 25, 18, 0.12);
+.book-page {
+    --page-pad-x: clamp(28px, 5vw, 64px);
+    --page-pad-y: clamp(28px, 5vw, 64px);
+
+    padding: var(--page-pad-y) var(--page-pad-x);
 }
 
-.selection-header .section-label {
-    color: #C6AC7B;
-}
-
-.selection-header h1 {
-    color: #F6E9CE;
-}
-
-/* 제목 영역을 책 페이지 좌우 끝까지 확장 */
-.selection-header {
+.book-page > .selection-header {
     position: relative;
     z-index: 1;
-    isolation: isolate;
 
-    width: calc(100% + 2 * clamp(28px, 5vw, 64px));
-    margin: 0 0 36px;
-    margin-left: calc(-1 * clamp(28px, 5vw, 64px));
+    width: calc(100% + 2 * var(--page-pad-x));
+
+    margin-top: calc(-1 * var(--page-pad-y));
+    margin-left: calc(-1 * var(--page-pad-x));
+    margin-right: 0;
+    margin-bottom: 36px;
 
     padding: 48px 24px 32px;
+
     text-align: center;
+
     background: #142F28;
     color: #F6E9CE;
+
     border: none;
     box-shadow: none;
 }
 
-.selection-header::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -80px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #142F28;
+.book-page > .selection-header .section-label {
+    color: #C6AC7B;
+}
+
+.book-page > .selection-header h1 {
+    color: #F6E9CE;
+}
+
+.book-page > .selection-header > p:last-child {
+    color: #F6E9CE;
 }
 
 /* ================================================== */
