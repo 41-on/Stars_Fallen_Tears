@@ -339,7 +339,22 @@ button:focus-visible {
     margin: 0 auto 32px;
     padding: 12px 0;
 
-    background: #e8d5b0;
+    background: transparent;
+}
+
+#epilogue-character-buttons::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+
+    background: #dfc9a3;
+    border-bottom: 1px solid #b69a6b;
+    box-shadow: 0 4px 8px rgba(53, 39, 27, 0.08);
 }
 
 .epilogue-character {
