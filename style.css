@@ -337,6 +337,8 @@ button:focus-visible {
     width: 100%;
     max-width: 680px;
     margin: 0 auto 32px;
+    margin-left: 0;
+    margin-right: 0;
     padding: 12px 0;
 
     background: transparent;
