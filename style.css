@@ -223,27 +223,6 @@ button:focus-visible {
     word-break: keep-all;
 }
 
-.book-page > .selection-header {
-    margin-top: calc(-1 * clamp(28px, 5vw, 64px));
-    margin-left: calc(-1 * clamp(28px, 5vw, 64px));
-    margin-right: calc(-1 * clamp(28px, 5vw, 64px));
-    margin-bottom: 36px;
-
-    padding: 48px 24px 32px;
-
-    background: #142F28;
-    color: #F6E9CE;
-}
-
-.book-page > .selection-header .section-label {
-    color: #C6AC7B;
-}
-
-.book-page > .selection-header h1,
-.book-page > .selection-header > p:last-child {
-    color: #F6E9CE;
-}
-
 /* 인물 카드 */
 
 .character-grid {
