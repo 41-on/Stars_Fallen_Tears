@@ -368,19 +368,23 @@ button:focus-visible {
     letter-spacing: 0.06em;
 }
 
-/* 에필로그 제목 영역 */
-#epilogue-screen .selection-header {
-    padding: 48px 20px;
-    background: #203F35;
+/* 공통 제목 영역 */
+.selection-header {
+    margin: 0 auto 36px;
+    padding: 32px 24px;
+    text-align: center;
+
+    background: #142F28;
     color: #F6E9CE;
-    border-bottom: 1px solid #527568;
+    border: 1px solid #426457;
+    box-shadow: 0 4px 12px rgba(33, 25, 18, 0.12);
 }
 
-#epilogue-screen .selection-header .section-label {
-    color: #D1B98B;
+.selection-header .section-label {
+    color: #C6AC7B;
 }
 
-#epilogue-screen .selection-header h1 {
+.selection-header h1 {
     color: #F6E9CE;
 }
 
