@@ -188,8 +188,6 @@ button:focus-visible {
     outline: 1px solid rgba(169, 138, 93, 0.6);
     outline-offset: -8px;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-
-    overflow: hidden;
 }
 
 .selection-header {
