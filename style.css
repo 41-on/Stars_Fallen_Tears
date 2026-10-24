@@ -351,7 +351,7 @@ button:focus-visible {
     bottom: 0;
     left: 50%;
     width: 100vw;
-    transform: translateX(-50%);
+    transform: translateX(0%);
     z-index: -1;
 
     background: #244b40;
