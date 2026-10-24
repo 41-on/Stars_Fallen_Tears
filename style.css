@@ -337,8 +337,6 @@ button:focus-visible {
     width: 100%;
     max-width: 680px;
     margin: 0 auto 32px;
-    margin-left: 0;
-    margin-right: 0;
     padding: 12px 0;
 
     background: transparent;
@@ -351,7 +349,7 @@ button:focus-visible {
     bottom: 0;
     left: 50%;
     width: 100vw;
-    transform: translateX(0%);
+    transform: translateX(-50%);
     z-index: -1;
 
     background: #244b40;
