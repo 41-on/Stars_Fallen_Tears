@@ -321,6 +321,29 @@ button:focus-visible {
     letter-spacing: 0.08em;
 }
 
+/* ================================================== */
+/* 4. 에필로그 인물 선택 */
+/* ================================================== */
+
+#epilogue-character-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto 32px;
+}
+
+.epilogue-character {
+    width: 100%;
+    min-height: 56px;
+    padding: 12px 16px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
 
 /* ================================================== */
 /* 작은 화면 */
@@ -356,7 +379,17 @@ button:focus-visible {
         aspect-ratio: 3 / 4;
     }
 
+    #epilogue-character-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
 
+    .epilogue-character {
+    min-height: 52px;
+    padding: 10px 8px;
+    font-size: 0.95rem;
+}
+    
     /* 첫 화면 */
 
     .landing-content {
