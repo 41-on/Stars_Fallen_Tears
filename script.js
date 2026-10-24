@@ -193,7 +193,18 @@ const endings = {
         title: "진엔딩",
         text: `여기에 알베르트 진엔딩 원고 입력`,
         epilogue: {
-            wilhelm: `여기에 알베르트 진엔딩 / 빌헬름 에필로그 원고 입력`,
+            wilhelm: `여기에 알베르트 진엔딩 / 빌헬름 에필로그 원고 입력
+            aaaaaaaaa
+            a
+            a
+            a
+            a
+            a
+            a
+            a
+            a
+            a
+            aaa`,
             julian: `여기에 알베르트 진엔딩 / 율리안 에필로그 원고 입력`,
             hilde: `여기에 알베르트 진엔딩 / 힐데 에필로그 원고 입력`,
             heinrich: `여기에 알베르트 진엔딩 / 하인리히 에필로그 원고 입력`,
