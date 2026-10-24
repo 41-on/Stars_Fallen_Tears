@@ -185,14 +185,36 @@ button:focus-visible {
         #e8d5b0;
 
     border: 1px solid #a98a5d;
-    outline: 1px solid rgba(169, 138, 93, 0.6);
-    outline-offset: -8px;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
 }
 
 .selection-header {
-    margin: 0 auto 36px;
+    position: relative;
+    z-index: 1;
+
+    margin-top: calc(-1 * clamp(28px, 5vw, 64px));
+    margin-left: calc(-1 * clamp(28px, 5vw, 64px));
+    margin-right: calc(-1 * clamp(28px, 5vw, 64px));
+    margin-bottom: 36px;
+
+    padding: 48px 24px 32px;
+
     text-align: center;
+
+    background: #142F28;
+    color: #F6E9CE;
+}
+
+.selection-header .section-label {
+    color: #C6AC7B;
+}
+
+.selection-header h1 {
+    color: #F6E9CE;
+}
+
+.selection-header > p:last-child {
+    color: #F6E9CE;
 }
 
 .section-label {
