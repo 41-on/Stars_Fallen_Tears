@@ -360,14 +360,13 @@ button:focus-visible {
     position: sticky;
     top: 0;
     z-index: 10;
-    transform: translateY(-120px);
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
 
     width: 100%;
     max-width: 680px;
-    margin: 0 auto 32px;
+    margin: -120px auto 32px;
     padding: 12px 0;
 
     background: transparent;
