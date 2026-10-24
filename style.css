@@ -352,9 +352,10 @@ button:focus-visible {
     transform: translateX(-50%);
     z-index: -1;
 
-    background: #dfc9a3;
-    border-bottom: 1px solid #b69a6b;
-    box-shadow: 0 4px 8px rgba(53, 39, 27, 0.08);
+    background: #244b40;
+    border-top: 1px solid #527568;
+    border-bottom: 1px solid #172f29;
+    box-shadow: 0 4px 10px rgba(35, 25, 16, 0.18);
 }
 
 .epilogue-character {
