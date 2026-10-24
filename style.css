@@ -368,6 +368,22 @@ button:focus-visible {
     letter-spacing: 0.06em;
 }
 
+/* 에필로그 제목 영역 */
+#epilogue-screen .selection-header {
+    padding: 48px 20px;
+    background: #203F35;
+    color: #F6E9CE;
+    border-bottom: 1px solid #527568;
+}
+
+#epilogue-screen .selection-header .section-label {
+    color: #D1B98B;
+}
+
+#epilogue-screen .selection-header h1 {
+    color: #F6E9CE;
+}
+
 /* ================================================== */
 /* 작은 화면 */
 /* ================================================== */
