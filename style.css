@@ -398,6 +398,10 @@ button:focus-visible {
     letter-spacing: 0.06em;
 }
 
+#epilogue-screen .choice-content {
+    justify-content: flex-start;
+}
+
 /* ================================================== */
 /* 작은 화면 */
 /* ================================================== */
