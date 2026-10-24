@@ -910,7 +910,8 @@ epilogueCharacterButtons.forEach((button) => {
         }
 
         epilogueTitle.textContent = button.textContent;
-        epilogueText.textContent = epilogue;
+        epilogueText.style.whiteSpace = "pre-line";
+       epilogueText.textContent = epilogue;
     });
 
 });
