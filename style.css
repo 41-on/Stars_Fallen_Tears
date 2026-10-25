@@ -458,3 +458,242 @@ button:focus-visible {
         gap: 24px;
     }
 }
+
+/* ================================================== */
+/* 엔딩 시작 연출 */
+/* ================================================== */
+
+#ending-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    overflow: hidden;
+    display: none;
+}
+
+#ending-intro.playing {
+    display: block;
+}
+
+/* 기존 메인 이미지 어둡게 */
+#home-screen.ending-playing .landing-background {
+    animation: landingFadeOut 1.2s ease forwards;
+}
+
+@keyframes landingFadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+/* -------------------------------------------------- */
+/* 별이 내린 눈물 */
+/* -------------------------------------------------- */
+
+#tear-title {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+.tear-word {
+    position: absolute;
+    color: #F6E9CE;
+    font-family: "Noto Serif KR", serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1;
+    opacity: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+/*
+    눈물 위치를 기준으로 좌우에 번갈아 배치
+*/
+
+.tear-1 {
+    left: calc(50% - 85px);
+    top: 22%;
+}
+
+.tear-2 {
+    left: calc(50% + 25px);
+    top: 30%;
+}
+
+.tear-3 {
+    left: calc(50% - 85px);
+    top: 39%;
+}
+
+.tear-4 {
+    left: calc(50% + 25px);
+    top: 47%;
+}
+
+.tear-5 {
+    left: calc(50% - 85px);
+    top: 56%;
+}
+
+.tear-6 {
+    left: calc(50% + 25px);
+    top: 64%;
+}
+
+#ending-intro.playing .tear-word {
+    animation: tearWordAppear 0.7s ease forwards;
+}
+
+#ending-intro.playing .tear-1 {
+    animation-delay: 0.7s;
+}
+
+#ending-intro.playing .tear-2 {
+    animation-delay: 1.35s;
+}
+
+#ending-intro.playing .tear-3 {
+    animation-delay: 2s;
+}
+
+#ending-intro.playing .tear-4 {
+    animation-delay: 2.65s;
+}
+
+#ending-intro.playing .tear-5 {
+    animation-delay: 3.3s;
+}
+
+#ending-intro.playing .tear-6 {
+    animation-delay: 3.95s;
+}
+
+@keyframes tearWordAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* -------------------------------------------------- */
+/* 마지막 눈물 */
+/* -------------------------------------------------- */
+
+#tear-drop {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 72%;
+    width: 14px;
+    height: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+
+    color: #F6E9CE;
+    font-size: 14px;
+    line-height: 14px;
+
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+#ending-intro.playing #tear-drop {
+    animation: finalDrop 1s ease 4.7s forwards;
+}
+
+@keyframes finalDrop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.5);
+    }
+
+    55% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    75% {
+        transform: translateY(0) scale(1.35);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.2);
+    }
+}
+
+/* -------------------------------------------------- */
+/* 물감처럼 번지는 표지 */
+/* -------------------------------------------------- */
+
+#cover-reveal {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #e8d5b0;
+
+    clip-path: circle(0% at 50% 76%);
+}
+
+#cover-reveal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#ending-intro.playing #cover-reveal {
+    animation: coverSpread 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 5.45s forwards;
+}
+
+@keyframes coverSpread {
+    0% {
+        clip-path: circle(0% at 50% 76%);
+    }
+
+    100% {
+        clip-path: circle(100% at 50% 76%);
+    }
+}
+
+/* -------------------------------------------------- */
+/* 모바일 */
+/* -------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .tear-word {
+        font-size: 1.5rem;
+    }
+
+    .tear-1,
+    .tear-3,
+    .tear-5 {
+        left: calc(50% - 65px);
+    }
+
+    .tear-2,
+    .tear-4,
+    .tear-6 {
+        left: calc(50% + 15px);
+    }
+
+    .tear-1 { top: 24%; }
+    .tear-2 { top: 32%; }
+    .tear-3 { top: 40%; }
+    .tear-4 { top: 48%; }
+    .tear-5 { top: 56%; }
+    .tear-6 { top: 64%; }
+}
