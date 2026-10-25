@@ -100,23 +100,26 @@ let endingIntroPlayed = false;
 const endingIntro = document.getElementById("ending-intro");
 
 startButton.addEventListener("click", () => {
-    if (!endingIntroPlayed) {
-        endingIntroPlayed = true;
+    if (endingIntroPlayed) {
+        endingIntro.classList.remove("playing");
+        endingIntro.setAttribute("aria-hidden", "true");
 
-        startButton.disabled = true;
-        endingIntro.classList.add("playing");
-        endingIntro.setAttribute("aria-hidden", "false");
-        homeScreen.classList.add("ending-playing");
-
-        setTimeout(() => {
-            startButton.textContent = "엔딩 페이지";
-            startButton.disabled = false;
-        }, 7900);
-
+        showScreen(screens.culprit);
         return;
     }
 
-    showScreen(screens.culprit);
+    endingIntroPlayed = true;
+
+    startButton.disabled = true;
+
+    endingIntro.classList.add("playing");
+    endingIntro.setAttribute("aria-hidden", "false");
+    homeScreen.classList.add("ending-playing");
+
+    setTimeout(() => {
+        startButton.textContent = "엔딩 페이지";
+        startButton.disabled = false;
+    }, 7900);
 });
 
 backButton.addEventListener("click", () => {
