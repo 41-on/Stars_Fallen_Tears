@@ -446,8 +446,17 @@ button:focus-visible {
     white-space: pre-line;
 }
 
+#epilogue-guide {
+    margin: 0;
+    text-align: center;
+}
+    
 #epilogue-text.epilogue-open {
     text-align: left;
+}
+
+#epilogue-text.epilogue-open #epilogue-guide {
+    display: none;
 }
     
     /* 첫 화면 */
