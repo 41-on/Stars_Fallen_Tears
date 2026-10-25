@@ -439,6 +439,16 @@ button:focus-visible {
     padding: 10px 8px;
     font-size: 0.95rem;
 }
+
+#epilogue-text {
+    text-align: center;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+#epilogue-text.epilogue-open {
+    text-align: left;
+}
     
     /* 첫 화면 */
 
