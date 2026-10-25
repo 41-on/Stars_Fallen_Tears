@@ -927,8 +927,9 @@ epilogueCharacterButtons.forEach((button) => {
         }
 
         epilogueTitle.textContent = button.textContent;
-      epilogueText.classList.add("epilogue-open");
-      epilogueText.textContent = epilogue;
+epilogueText.style.textAlign = "left";
+epilogueText.style.whiteSpace = "pre-line";
+epilogueText.textContent = epilogue;
     });
 
 });
@@ -949,7 +950,9 @@ function returnToHome() {
     if (clueTwoInput) clueTwoInput.checked = false;
 
     epilogueTitle.textContent = "에필로그";
-    epilogueText.textContent = "";
+epilogueText.style.textAlign = "center";
+epilogueText.style.whiteSpace = "normal";
+epilogueText.textContent = "에필로그를 확인하고 싶은 인물을 선택하세요.";
 
     showScreen(screens.home);
 }
