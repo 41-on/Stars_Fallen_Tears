@@ -281,11 +281,10 @@ button:focus-visible {
     width: 100%;
     aspect-ratio: 3 / 4;
     margin-bottom: 12px;
-
     border: 1px solid rgba(124, 94, 59, 0.55);
     background: #d5bd95;
 
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
