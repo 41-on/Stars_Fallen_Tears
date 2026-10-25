@@ -95,8 +95,31 @@ function showScreen(screenToShow) {
    5. 첫 화면과 범인 선택
 ================================================== */
 
+let endingIntroPlayed = false;
+
+const endingIntro = document.getElementById("ending-intro");
+
 startButton.addEventListener("click", () => {
-    showScreen(screens.culprit);
+    if (endingIntroPlayed) {
+        endingIntro.classList.remove("playing");
+        endingIntro.setAttribute("aria-hidden", "true");
+
+        showScreen(screens.culprit);
+        return;
+    }
+
+    endingIntroPlayed = true;
+
+    startButton.disabled = true;
+
+    endingIntro.classList.add("playing");
+    endingIntro.setAttribute("aria-hidden", "false");
+    homeScreen.classList.add("ending-playing");
+
+    setTimeout(() => {
+        startButton.textContent = "엔딩 페이지";
+        startButton.disabled = false;
+    }, 7900);
 });
 
 backButton.addEventListener("click", () => {
