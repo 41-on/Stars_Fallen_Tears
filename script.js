@@ -43,20 +43,6 @@ const finishGameButton = document.getElementById("finish-game");
 const finishEpilogueButton = document.getElementById("finish-epilogue");
 
 /* ==================================================
-   2. 인물 이름
-================================================== */
-
-const characterNames = {
-    A: "빌헬름",
-    B: "율리안",
-    C: "힐데",
-    D: "하인리히",
-    E: "알베르트",
-    F: "에밀"
-};
-
-
-/* ==================================================
    3. 선택 결과 저장
 ================================================== */
 
