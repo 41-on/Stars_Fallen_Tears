@@ -277,22 +277,16 @@ button:focus-visible {
 }
 
 .portrait-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     margin-bottom: 12px;
+
     border: 1px solid rgba(124, 94, 59, 0.55);
-    background:
-        linear-gradient(
-            rgba(105, 78, 48, 0.06),
-            rgba(105, 78, 48, 0.16)
-        ),
-        #d5bd95;
-    color: #806747;
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
+    background: #d5bd95;
+
+    object-fit: cover;
+    object-position: center;
 }
 
 .character-name {
@@ -434,10 +428,6 @@ button:focus-visible {
 
     .character-card {
         padding: 8px 8px 12px;
-    }
-
-    .portrait-placeholder {
-        aspect-ratio: 3 / 4;
     }
 
     #epilogue-character-buttons {
