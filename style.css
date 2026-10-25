@@ -467,24 +467,14 @@ button:focus-visible {
     position: fixed;
     inset: 0;
     z-index: 100;
-    pointer-events: none;
-    overflow: hidden;
     display: none;
+    overflow: hidden;
+    pointer-events: none;
+    background: #000;
 }
 
 #ending-intro.playing {
     display: block;
-}
-
-/* 기존 메인 이미지 어둡게 */
-#home-screen.ending-playing .landing-background {
-    animation: landingFadeOut 1.2s ease forwards;
-}
-
-@keyframes landingFadeOut {
-    to {
-        opacity: 0;
-    }
 }
 
 /* -------------------------------------------------- */
@@ -499,43 +489,54 @@ button:focus-visible {
 
 .tear-word {
     position: absolute;
+
     color: #F6E9CE;
     font-family: "Noto Serif KR", serif;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 600;
     line-height: 1;
+
     opacity: 0;
+
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
-/*
-    눈물 위치를 기준으로 좌우에 번갈아 배치
-*/
+/* 눈물 왼쪽 */
 
 .tear-1 {
     left: calc(50% - 85px);
     top: 22%;
 }
 
+/* 눈물 오른쪽 */
+
 .tear-2 {
     left: calc(50% + 25px);
     top: 30%;
 }
+
+/* 눈물 왼쪽 */
 
 .tear-3 {
     left: calc(50% - 85px);
     top: 39%;
 }
 
+/* 눈물 오른쪽 */
+
 .tear-4 {
     left: calc(50% + 25px);
     top: 47%;
 }
 
+/* 눈물 왼쪽 */
+
 .tear-5 {
     left: calc(50% - 85px);
     top: 56%;
 }
+
+/* 눈물 오른쪽 */
 
 .tear-6 {
     left: calc(50% + 25px);
@@ -591,10 +592,13 @@ button:focus-visible {
 #tear-drop {
     position: absolute;
     z-index: 4;
+
     left: 50%;
     top: 72%;
+
     width: 14px;
     height: 14px;
+
     margin-left: -7px;
     margin-top: -7px;
 
@@ -622,6 +626,7 @@ button:focus-visible {
     }
 
     75% {
+        opacity: 1;
         transform: translateY(0) scale(1.35);
     }
 
@@ -632,7 +637,7 @@ button:focus-visible {
 }
 
 /* -------------------------------------------------- */
-/* 물감처럼 번지는 표지 */
+/* 눈물에서 퍼지는 표지 */
 /* -------------------------------------------------- */
 
 #cover-reveal {
@@ -640,9 +645,7 @@ button:focus-visible {
     inset: 0;
     z-index: 2;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 
     background: #e8d5b0;
 
@@ -650,21 +653,25 @@ button:focus-visible {
 }
 
 #cover-reveal img {
+    display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 }
 
 #ending-intro.playing #cover-reveal {
-    animation: coverSpread 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 5.45s forwards;
+    animation:
+        coverSpread 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 5.45s forwards;
 }
 
 @keyframes coverSpread {
-    0% {
+    from {
         clip-path: circle(0% at 50% 76%);
     }
 
-    100% {
+    to {
         clip-path: circle(100% at 50% 76%);
     }
 }
@@ -674,6 +681,7 @@ button:focus-visible {
 /* -------------------------------------------------- */
 
 @media (max-width: 600px) {
+
     .tear-word {
         font-size: 1.5rem;
     }
@@ -690,10 +698,27 @@ button:focus-visible {
         left: calc(50% + 15px);
     }
 
-    .tear-1 { top: 24%; }
-    .tear-2 { top: 32%; }
-    .tear-3 { top: 40%; }
-    .tear-4 { top: 48%; }
-    .tear-5 { top: 56%; }
-    .tear-6 { top: 64%; }
+    .tear-1 {
+        top: 24%;
+    }
+
+    .tear-2 {
+        top: 32%;
+    }
+
+    .tear-3 {
+        top: 40%;
+    }
+
+    .tear-4 {
+        top: 48%;
+    }
+
+    .tear-5 {
+        top: 56%;
+    }
+
+    .tear-6 {
+        top: 64%;
+    }
 }
