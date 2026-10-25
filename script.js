@@ -898,8 +898,8 @@ goToEpilogueButton.addEventListener("click", () => {
     }
 
     epilogueTitle.textContent = "에필로그";
-   epilogueText.classList.remove("epilogue-open");
-   epilogueText.textContent = "에필로그를 확인하고 싶은 인물을 선택하세요.";
+epilogueText.classList.remove("epilogue-open");
+epilogueText.innerHTML = '<p id="epilogue-guide">에필로그를 확인하고 싶은 인물을 선택하세요.</p>';
 
     showScreen(screens.epilogue);
 });
@@ -928,7 +928,6 @@ epilogueCharacterButtons.forEach((button) => {
 
         epilogueTitle.textContent = button.textContent;
       epilogueText.classList.add("epilogue-open");
-      epilogueText.style.whiteSpace = "pre-line";
       epilogueText.textContent = epilogue;
     });
 
