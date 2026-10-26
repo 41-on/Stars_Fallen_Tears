@@ -378,18 +378,31 @@ const endings = {
         }
     },
 
-    albertNormal: {
-        title: "엔딩",
-        text: `여기에 알베르트 일반 엔딩 원고 입력`,
-        epilogue: {
-            wilhelm: `여기에 알베르트 일반 엔딩 / 빌헬름 에필로그 원고 입력`,
-            julian: `여기에 알베르트 일반 엔딩 / 율리안 에필로그 원고 입력`,
-            hilde: `여기에 알베르트 일반 엔딩 / 힐데 에필로그 원고 입력`,
-            heinrich: `여기에 알베르트 일반 엔딩 / 하인리히 에필로그 원고 입력`,
-            albert: `여기에 알베르트 일반 엔딩 / 알베르트 에필로그 원고 입력`,
-            emil: `여기에 알베르트 일반 엔딩 / 에밀 에필로그 원고 입력`
-        }
-    },
+    albertNormalItem: {
+    title: "엔딩",
+    text: `여기에 알베르트 일반 엔딩 / 기밀단서 소지 원고 입력`,
+    epilogue: {
+        wilhelm: `여기에 알베르트 일반 엔딩 / 기밀단서 소지 / 빌헬름 에필로그 원고 입력`,
+        julian: `여기에 알베르트 일반 엔딩 / 기밀단서 소지 / 율리안 에필로그 원고 입력`,
+        hilde: `여기에 알베르트 일반 엔딩 / 기밀단서 소지 / 힐데 에필로그 원고 입력`,
+        heinrich: `여기에 알베르트 일반 엔딩 / 기밀단서 소지 / 하인리히 에필로그 원고 입력`,
+        albert: `여기에 알베르트 일반 엔딩 / 기밀단서 소지 / 알베르트 에필로그 원고 입력`,
+        emil: `여기에 알베르트 일반 엔딩 / 기밀단서 소지 / 에밀 에필로그 원고 입력`
+    }
+},
+
+albertNormalNoItem: {
+    title: "엔딩",
+    text: `여기에 알베르트 일반 엔딩 / 기밀단서 미소지 원고 입력`,
+    epilogue: {
+        wilhelm: `여기에 알베르트 일반 엔딩 / 기밀단서 미소지 / 빌헬름 에필로그 원고 입력`,
+        julian: `여기에 알베르트 일반 엔딩 / 기밀단서 미소지 / 율리안 에필로그 원고 입력`,
+        hilde: `여기에 알베르트 일반 엔딩 / 기밀단서 미소지 / 힐데 에필로그 원고 입력`,
+        heinrich: `여기에 알베르트 일반 엔딩 / 기밀단서 미소지 / 하인리히 에필로그 원고 입력`,
+        albert: `여기에 알베르트 일반 엔딩 / 기밀단서 미소지 / 알베르트 에필로그 원고 입력`,
+        emil: `여기에 알베르트 일반 엔딩 / 기밀단서 미소지 / 에밀 에필로그 원고 입력`
+    }
+},
 
 
     /* ==================================================
@@ -828,14 +841,22 @@ function resolveEnding() {
 
     if (culprit === "E") {
 
-        if (hasItem === true && hasBothClues) {
-            showEnding(endings.albertTrue);
-            return;
-        }
-
-        showEnding(endings.albertNormal);
+    // 기밀단서 소지 + 두 단서 모두 공개 = 진엔딩
+    if (hasItem === true && hasBothClues) {
+        showEnding(endings.albertTrue);
         return;
     }
+
+    // 기밀단서 소지 + 단서 미공개/일부 공개 = 일반 엔딩
+    if (hasItem === true) {
+        showEnding(endings.albertNormalItem);
+        return;
+    }
+
+    // 기밀단서 미소지 = 일반 엔딩
+    showEnding(endings.albertNormalNoItem);
+    return;
+}
 
 
     /* ----------------------------------------------
