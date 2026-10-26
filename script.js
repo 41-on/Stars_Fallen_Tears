@@ -251,7 +251,9 @@ const endings = {
             두 남매는 이내 서로에게 달려갔다. 그리고 그때가 되어서야 빌헬름은 드디어 동생을 지키지 못했던 책임으로부터 자유로워졌다.`,
             julian: `여기에 알베르트 진엔딩 / 율리안 에필로그 원고 입력`,
             hilde: `여기에 알베르트 진엔딩 / 힐데 에필로그 원고 입력`,
-            heinrich: `하지만 하인리히는 그 편지를 보고도 연구소에 남았다. 자신의 마지막 책임을 다하기 위해서였다.
+            heinrich: `(에밀에게 힐데가 선택받은 경우)
+            
+             하지만 하인리히는 그 편지를 보고도 연구소에 남았다. 자신의 마지막 책임을 다하기 위해서였다.
             스텔라를 향한 죄책감으로부터 자유롭지 않았다. 심지어 그는 이번 사건을 겪고 유대인을 학살한 것에도 죄책감을 느끼게 됐다.
 
             유대인을 사랑하고 유대인 아이를 마음에 품은 독일인, 하인리히.
@@ -945,7 +947,7 @@ goToEpilogueButton.addEventListener("click", () => {
 
     epilogueTitle.textContent = "에필로그";
 epilogueText.classList.remove("epilogue-open");
-epilogueText.innerHTML = '<p id="epilogue-guide">에필로그를 확인하고 싶은 인물을 선택하세요.</p>';
+epilogueText.innerHTML = '<p id="epilogue-guide">에필로그를 확인하고 싶은 인물을 선택하세요. 순서대로 보는 것을 추천합니다.</p>';
 
     showScreen(screens.epilogue);
 });
