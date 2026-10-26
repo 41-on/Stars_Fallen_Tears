@@ -347,7 +347,7 @@ button:focus-visible {
 
 #ending-description {
     text-align: left;
-    white-space: pre-wrap;
+    white-space: pre-line;
 }
 
 /* ================================================== */
