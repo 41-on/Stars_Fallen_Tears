@@ -11,7 +11,8 @@ const screens = {
     clue: document.getElementById("clue-screen"),
     restraint: document.getElementById("restraint-screen"),
     ending: document.getElementById("ending-screen"),
-    epilogue: document.getElementById("epilogue-screen")
+    epilogue: document.getElementById("epilogue-screen"),
+    truth: document.getElementById("truth-screen")
 };
 
 const startButton = document.getElementById("start-ending");
@@ -41,6 +42,8 @@ const epilogueCharacterButtons =
     document.querySelectorAll(".epilogue-character");
 const finishGameButton = document.getElementById("finish-game");
 const finishEpilogueButton = document.getElementById("finish-epilogue");
+const finishTruthButton = document.getElementById("finish-truth");
+finishTruthButton.addEventListener("click", returnToHome);
 
 /* ==================================================
    3. 선택 결과 저장
@@ -3330,4 +3333,7 @@ epilogueText.textContent = "에필로그를 확인하고 싶은 인물을 선택
 }
 
 finishGameButton.addEventListener("click", returnToHome);
-finishEpilogueButton.addEventListener("click", returnToHome);
+finishEpilogueButton.addEventListener("click", () => {
+    showScreen(screens.truth);
+});
+
